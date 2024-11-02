@@ -63,7 +63,7 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "SELECT * FROM products WHERE id = @product_id";
+                    string sql = "SELECT * FROM products WHERE product_id = @product_id";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@product_id", product_id);
@@ -106,8 +106,8 @@ namespace myMarkletplace.Data_Accesses
                     conn.Open();
 
                     string sql = "INSERT INTO products" +
-                                 "(product_id, product_name, product_price, prodcut_stock, product_description) VALUES" +
-                                 "(@product_id, @product_name, @product_price, @prodcut_stock, @product_description);";
+                                 "(product_name, product_price, product_stock, product_description) VALUES" +
+                                 "(@product_name, @product_price, @product_stock, @product_description);";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@product_id", product.product_id);
@@ -156,7 +156,7 @@ namespace myMarkletplace.Data_Accesses
         }
 
         //Delete Products
-        public void DeleteEmployee(int product_id)
+        public void DeleteProduct(int product_id)
         {
             try
             {

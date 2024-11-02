@@ -28,30 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProductName = new System.Windows.Forms.TextBox();
-            this.txtProductStock = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtProductPrice = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtProductStock = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtProductDescription = new System.Windows.Forms.RichTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(32, 97);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(510, 321);
-            this.dataGridView1.TabIndex = 0;
             // 
             // label1
             // 
@@ -69,12 +59,12 @@
             this.txtProductName.Size = new System.Drawing.Size(212, 22);
             this.txtProductName.TabIndex = 2;
             // 
-            // txtProductStock
+            // txtProductPrice
             // 
-            this.txtProductStock.Location = new System.Drawing.Point(558, 231);
-            this.txtProductStock.Name = "txtProductStock";
-            this.txtProductStock.Size = new System.Drawing.Size(212, 22);
-            this.txtProductStock.TabIndex = 4;
+            this.txtProductPrice.Location = new System.Drawing.Point(558, 176);
+            this.txtProductPrice.Name = "txtProductPrice";
+            this.txtProductPrice.Size = new System.Drawing.Size(212, 22);
+            this.txtProductPrice.TabIndex = 4;
             // 
             // label2
             // 
@@ -85,12 +75,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "PRODUCT PRICE";
             // 
-            // txtProductPrice
+            // txtProductStock
             // 
-            this.txtProductPrice.Location = new System.Drawing.Point(558, 176);
-            this.txtProductPrice.Name = "txtProductPrice";
-            this.txtProductPrice.Size = new System.Drawing.Size(212, 22);
-            this.txtProductPrice.TabIndex = 6;
+            this.txtProductStock.Location = new System.Drawing.Point(558, 231);
+            this.txtProductStock.Name = "txtProductStock";
+            this.txtProductStock.Size = new System.Drawing.Size(212, 22);
+            this.txtProductStock.TabIndex = 6;
             // 
             // label3
             // 
@@ -126,6 +116,7 @@
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnUpdate
             // 
@@ -135,6 +126,7 @@
             this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnDelete
             // 
@@ -144,6 +136,19 @@
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // dgvProducts
+            // 
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Cursor = System.Windows.Forms.Cursors.No;
+            this.dgvProducts.Location = new System.Drawing.Point(32, 97);
+            this.dgvProducts.MultiSelect = false;
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.RowHeadersWidth = 51;
+            this.dgvProducts.RowTemplate.Height = 24;
+            this.dgvProducts.Size = new System.Drawing.Size(510, 321);
+            this.dgvProducts.TabIndex = 0;
             // 
             // Form1
             // 
@@ -155,35 +160,34 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtProductDescription);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtProductPrice);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtProductStock);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtProductPrice);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvProducts);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProductName;
-        private System.Windows.Forms.TextBox txtProductStock;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProductPrice;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtProductStock;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RichTextBox txtProductDescription;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridView dgvProducts;
     }
 }
 
