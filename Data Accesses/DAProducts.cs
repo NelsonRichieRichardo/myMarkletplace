@@ -10,7 +10,7 @@ namespace myMarkletplace.Data_Accesses
 {
     public class DAProducts
     {
-        private readonly string connstring = "Data Source = LAPTOP-14TD8G87\\SQLEXPRESS; Initial Catalog  = myMarketplace; Integrated Security = true";
+        private readonly string connstring = "Data Source = DESKTOP-OC4QH26\\SQLEXPRESS; Initial Catalog  = myMarketplace; Integrated Security = true";
 
         public DMProducts DMProducts { get; private set; }
 
