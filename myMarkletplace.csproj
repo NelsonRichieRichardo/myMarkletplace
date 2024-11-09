@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Data Accesses\DAProducts.cs" />
     <Compile Include="Data Models\DMProducts.cs" />
+    <Compile Include="landingpage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="landingpage.Designer.cs">
+      <DependentUpon>landingpage.cs</DependentUpon>
+    </Compile>
     <Compile Include="SellerProductsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +62,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="landingpage.resx">
+      <DependentUpon>landingpage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SellerProductsForm.resx">
       <DependentUpon>SellerProductsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -67,6 +76,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -83,6 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business Logic\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %283%29.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
