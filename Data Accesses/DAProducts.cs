@@ -10,7 +10,7 @@ namespace myMarkletplace.Data_Accesses
 {
     public class DAProducts
     {
-        private readonly string connstring = "Data Source = DESKTOP-OC4QH26\\SQLEXPRESS; Initial Catalog  = myMarketplace; Integrated Security = true";
+        private readonly string connstring = "Data Source = LAPTOP-14TD8G87\\SQLEXPRESS; Initial Catalog  = myMarketplace; Integrated Security = true";
 
         public DMProducts DMProducts { get; private set; }
 
@@ -37,7 +37,8 @@ namespace myMarkletplace.Data_Accesses
                                     product_name = reader.GetString(1),
                                     product_price = reader.GetInt32(2),
                                     product_stock = reader.GetInt32(3),
-                                    product_description = reader.GetString(4)
+                                    product_description = reader.GetString(4),
+                                    product_image = reader["product_image"] as byte[]
                                 };
 
                                 products.Add(DMProducts);
@@ -78,7 +79,8 @@ namespace myMarkletplace.Data_Accesses
                                     product_name = reader.GetString(1),
                                     product_price = reader.GetInt32(2),
                                     product_stock = reader.GetInt32(3),
-                                    product_description = reader.GetString(4)
+                                    product_description = reader.GetString(4),
+                                    product_image = reader["product_image"] as byte[]
                                 };
 
                                 return DMProducts;
@@ -106,8 +108,8 @@ namespace myMarkletplace.Data_Accesses
                     conn.Open();
 
                     string sql = "INSERT INTO products" +
-                                 "(product_name, product_price, product_stock, product_description) VALUES" +
-                                 "(@product_name, @product_price, @product_stock, @product_description);";
+                                 "(product_name, product_price, product_stock, product_description, product_image) VALUES" +
+                                 "(@product_name, @product_price, @product_stock, @product_description, @product_image);";
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@product_id", product.product_id);
@@ -115,6 +117,7 @@ namespace myMarkletplace.Data_Accesses
                         cmd.Parameters.AddWithValue("@product_price", product.product_price);
                         cmd.Parameters.AddWithValue("@product_stock", product.product_stock);
                         cmd.Parameters.AddWithValue("@product_description", product.product_description);
+                        cmd.Parameters.AddWithValue("@product_image", product.product_image);
 
                         cmd.ExecuteNonQuery();
                     }
@@ -135,7 +138,7 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "UPDATE products SET product_name=@product_name, product_price=@product_price, product_stock=@product_stock WHERE product_id=@product_id";
+                    string sql = "UPDATE products SET product_name=@product_name, product_price=@product_price, product_stock=@product_stock, product_image=@product_image WHERE product_id=@product_id";
 
                     using (SqlCommand cmd = new SqlCommand(sql, conn))
                     {
@@ -144,6 +147,7 @@ namespace myMarkletplace.Data_Accesses
                         cmd.Parameters.AddWithValue("@product_price", product.product_price);
                         cmd.Parameters.AddWithValue("@product_stock", product.product_stock);
                         cmd.Parameters.AddWithValue("@product_description", product.product_description);
+                        cmd.Parameters.AddWithValue("@product_image", product.product_image);
 
                         cmd.ExecuteNonQuery();
                     }

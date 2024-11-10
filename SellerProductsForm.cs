@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,8 @@ namespace myMarkletplace
                     product_name = txtProductName.Text,
                     product_price = int.Parse(txtProductPrice.Text),
                     product_stock = int.Parse(txtProductStock.Text),
-                    product_description = txtProductDescription.Text
+                    product_description = txtProductDescription.Text,
+                    product_image = getPhoto()
                 };
 
                 _DAProducts.CreateProduct(product);
@@ -74,7 +76,8 @@ namespace myMarkletplace
                         product_name = this.txtProductName.Text,
                         product_price = int.Parse(this.txtProductPrice.Text),
                         product_stock = int.Parse(this.txtProductStock.Text),
-                        product_description = this.txtProductDescription.Text
+                        product_description = this.txtProductDescription.Text,
+                        product_image = getPhoto()
                     };
 
                     _DAProducts.UpdateProduct(product);
@@ -130,15 +133,30 @@ namespace myMarkletplace
 
         private void button2_Click(object sender, EventArgs e)
         {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            try
             {
-                openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
                 {
-                    pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
-                    pictureBox1.Tag = openFileDialog.FileName; // Simpan path foto di Tag
+                    openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error uploading image: " + ex.Message);
+            }
+        }
+
+        private byte[] getPhoto()
+        {
+            MemoryStream stream = new MemoryStream();
+
+            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+
+            return stream.GetBuffer();
         }
     }
 }

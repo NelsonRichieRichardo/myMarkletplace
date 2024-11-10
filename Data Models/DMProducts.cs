@@ -7,5 +7,6 @@
         public int product_price { get; set; }
         public int product_stock { get; set; }
         public string product_description { get; set; }
+        public byte[] product_image { get; set; }
     }
 }
