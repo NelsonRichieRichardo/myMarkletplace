@@ -20,30 +20,17 @@ namespace myMarkletplace
         }
         private void SetPlaceholder()
         {
-            textBox1.Text = "Enter your email...";
-            textBox1.ForeColor = Color.Gray;
-
-            // Event handler untuk Enter dan Leave
-            textBox1.Enter += RemovePlaceholder;
-            textBox1.Leave += SetPlaceholderIfEmpty;
+           
         }
 
         private void RemovePlaceholder(object sender, EventArgs e)
         {
-            if (textBox1.ForeColor == Color.Gray)
-            {
-                textBox1.Text = "";
-                textBox1.ForeColor = Color.Black;
-            }
+            
         }
 
         private void SetPlaceholderIfEmpty(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                textBox1.Text = "Masukkan teks di sini...";
-                textBox1.ForeColor = Color.Gray;
-            }
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -53,7 +40,10 @@ namespace myMarkletplace
 
         private void landingpage_Load(object sender, EventArgs e)
         {
-
+            home1.Show();
+            contact1.Hide();
+            about1.Hide();
+            sign_up1.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -148,6 +138,57 @@ namespace myMarkletplace
         }
 
         private void label62_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void home1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            contact1.Hide();
+            about1.Hide();
+            home1.Show();   
+            home1.BringToFront();
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            about1.Hide();
+            home1.Hide();
+            contact1.Show();
+            contact1.BringToFront();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            home1.Hide();
+            contact1.Hide();
+            about1.Show();
+            about1.BringToFront();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            home1.Hide();
+            contact1.Hide();
+            about1.Hide();
+            sign_up1.Show();
+            sign_up1.BringToFront();
+        }
+
+        private void contact1_Load(object sender, EventArgs e)
         {
 
         }

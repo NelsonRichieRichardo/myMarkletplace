@@ -46,14 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="about.Designer.cs">
+      <DependentUpon>about.cs</DependentUpon>
+    </Compile>
     <Compile Include="catalog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="catalog.Designer.cs">
       <DependentUpon>catalog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contact.Designer.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data Accesses\DAProducts.cs" />
     <Compile Include="Data Models\DMProducts.cs" />
+    <Compile Include="home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="home.Designer.cs">
+      <DependentUpon>home.cs</DependentUpon>
+    </Compile>
     <Compile Include="landingpage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,8 +86,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sign up.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sign up.Designer.cs">
+      <DependentUpon>Sign up.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="about.resx">
+      <DependentUpon>about.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="catalog.resx">
       <DependentUpon>catalog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contact.resx">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="home.resx">
+      <DependentUpon>home.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="landingpage.resx">
       <DependentUpon>landingpage.cs</DependentUpon>
@@ -87,6 +120,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sign up.resx">
+      <DependentUpon>Sign up.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
