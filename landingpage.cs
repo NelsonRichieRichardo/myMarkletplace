@@ -15,8 +15,35 @@ namespace myMarkletplace
         public landingpage()
         {
             InitializeComponent();
-          
 
+            SetPlaceholder();
+        }
+        private void SetPlaceholder()
+        {
+            textBox1.Text = "Enter your email...";
+            textBox1.ForeColor = Color.Gray;
+
+            // Event handler untuk Enter dan Leave
+            textBox1.Enter += RemovePlaceholder;
+            textBox1.Leave += SetPlaceholderIfEmpty;
+        }
+
+        private void RemovePlaceholder(object sender, EventArgs e)
+        {
+            if (textBox1.ForeColor == Color.Gray)
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.Black;
+            }
+        }
+
+        private void SetPlaceholderIfEmpty(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            {
+                textBox1.Text = "Masukkan teks di sini...";
+                textBox1.ForeColor = Color.Gray;
+            }
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -76,6 +103,51 @@ namespace myMarkletplace
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label39_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label47_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label51_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label50_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label52_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label49_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label59_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label62_Click(object sender, EventArgs e)
         {
 
         }

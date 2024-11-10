@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="catalog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="catalog.Designer.cs">
+      <DependentUpon>catalog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Data Accesses\DAProducts.cs" />
     <Compile Include="Data Models\DMProducts.cs" />
     <Compile Include="landingpage.cs">
@@ -62,6 +68,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="catalog.resx">
+      <DependentUpon>catalog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="landingpage.resx">
       <DependentUpon>landingpage.cs</DependentUpon>
     </EmbeddedResource>
