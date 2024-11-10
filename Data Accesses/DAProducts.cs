@@ -24,9 +24,13 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "SELECT * FROM products ORDER BY product_id DESC";
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand("GetAllProduct", conn))
                     {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Execute the stored procedure
+                        cmd.ExecuteNonQuery();
+
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             while (reader.Read())
@@ -64,10 +68,15 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "SELECT * FROM products WHERE product_id = @product_id";
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand("GetProduct", conn))
                     {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
                         cmd.Parameters.AddWithValue("@product_id", product_id);
+
+                        // Execute the stored procedure
+                        cmd.ExecuteNonQuery();
 
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -107,18 +116,18 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "INSERT INTO products" +
-                                 "(product_name, product_price, product_stock, product_description, product_image) VALUES" +
-                                 "(@product_name, @product_price, @product_stock, @product_description, @product_image);";
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand("InsertProduct", conn))
                     {
-                        cmd.Parameters.AddWithValue("@product_id", product.product_id);
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
                         cmd.Parameters.AddWithValue("@product_name", product.product_name);
                         cmd.Parameters.AddWithValue("@product_price", product.product_price);
                         cmd.Parameters.AddWithValue("@product_stock", product.product_stock);
                         cmd.Parameters.AddWithValue("@product_description", product.product_description);
                         cmd.Parameters.AddWithValue("@product_image", product.product_image);
 
+                        // Execute the stored procedure
                         cmd.ExecuteNonQuery();
                     }
                 }
@@ -138,10 +147,11 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "UPDATE products SET product_name=@product_name, product_price=@product_price, product_stock=@product_stock, product_image=@product_image WHERE product_id=@product_id";
-
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand("UpdateProduct", conn))
                     {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
                         cmd.Parameters.AddWithValue("@product_id", product.product_id);
                         cmd.Parameters.AddWithValue("@product_name", product.product_name);
                         cmd.Parameters.AddWithValue("@product_price", product.product_price);
@@ -149,8 +159,11 @@ namespace myMarkletplace.Data_Accesses
                         cmd.Parameters.AddWithValue("@product_description", product.product_description);
                         cmd.Parameters.AddWithValue("@product_image", product.product_image);
 
-                        cmd.ExecuteNonQuery();
+                        // Execute the stored procedure
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        Console.WriteLine($"{rowsAffected} row(s) updated.");
                     }
+
                 }
             }
             catch (Exception ex)
@@ -168,11 +181,14 @@ namespace myMarkletplace.Data_Accesses
                 {
                     conn.Open();
 
-                    string sql = "DELETE FROM products WHERE product_id = @product_id";
-                    using (SqlCommand cmd = new SqlCommand(sql, conn))
+                    using (SqlCommand cmd = new SqlCommand("DeleteProduct", conn))
                     {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        // Add parameters for the stored procedure
                         cmd.Parameters.AddWithValue("@product_id", product_id);
 
+                        // Execute the stored procedure
                         cmd.ExecuteNonQuery();
                     }
                 }
