@@ -65,7 +65,9 @@
       <DependentUpon>Contact.cs</DependentUpon>
     </Compile>
     <Compile Include="Data Accesses\DAProducts.cs" />
+    <Compile Include="Data Accesses\DAUsers.cs" />
     <Compile Include="Data Models\DMProducts.cs" />
+    <Compile Include="Data Models\DMUsers.cs" />
     <Compile Include="home.cs">
       <SubType>UserControl</SubType>
     </Compile>

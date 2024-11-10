@@ -7,13 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using myMarkletplace.Data_Accesses;
+using myMarkletplace.Data_Models;
 
 namespace myMarkletplace
 {
-    public partial class Sign_up : UserControl
+    public partial class SignUp : UserControl
     {
-        public Sign_up()
+
+        private readonly DAUsers _DAUsers;
+
+        public SignUp()
         {
+            _DAUsers = new DAUsers();
+
             InitializeComponent();
             SetPlaceholder();
             SetPlaceholder2();
@@ -49,20 +56,20 @@ namespace myMarkletplace
 
         private void SetPlaceholder2()
         {
-            textBox2.Text = "Email or Phone Number";
-            textBox2.ForeColor = Color.Gray;
+            txtPassword.Text = "Email or Phone Number";
+            txtPassword.ForeColor = Color.Gray;
 
             // Event handler untuk Enter dan Leave
-            textBox2.Enter += RemovePlaceholder2;
-            textBox2.Leave += SetPlaceholderIfEmpty2;
+            txtPassword.Enter += RemovePlaceholder2;
+            txtPassword.Leave += SetPlaceholderIfEmpty2;
         }
 
         private void RemovePlaceholder2(object sender, EventArgs e)
         {
-            if (textBox2.ForeColor == Color.Gray)
+            if (txtPassword.ForeColor == Color.Gray)
             {
-                textBox2.Text = "";
-                textBox2.ForeColor = Color.Black;
+                txtPassword.Text = "";
+                txtPassword.ForeColor = Color.Black;
             }
         }
 
@@ -70,27 +77,27 @@ namespace myMarkletplace
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                textBox2.Text = "Email or Phone Number";
-                textBox2.ForeColor = Color.Gray;
+                txtPassword.Text = "Email or Phone Number";
+                txtPassword.ForeColor = Color.Gray;
             }
         }
 
         private void SetPlaceholder3()
         {
-            textBox3.Text = "Password";
-            textBox3.ForeColor = Color.Gray;
+            txtEmail.Text = "Password";
+            txtEmail.ForeColor = Color.Gray;
 
             // Event handler untuk Enter dan Leave
-            textBox3.Enter += RemovePlaceholder3;
-            textBox3.Leave += SetPlaceholderIfEmpty3;
+            txtEmail.Enter += RemovePlaceholder3;
+            txtEmail.Leave += SetPlaceholderIfEmpty3;
         }
 
         private void RemovePlaceholder3(object sender, EventArgs e)
         {
-            if (textBox3.ForeColor == Color.Gray)
+            if (txtEmail.ForeColor == Color.Gray)
             {
-                textBox3.Text = "";
-                textBox3.ForeColor = Color.Black;
+                txtEmail.Text = "";
+                txtEmail.ForeColor = Color.Black;
             }
         }
 
@@ -98,8 +105,8 @@ namespace myMarkletplace
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                textBox3.Text = "Password";
-                textBox3.ForeColor = Color.Gray;
+                txtEmail.Text = "Password";
+                txtEmail.ForeColor = Color.Gray;
             }
         }
 
@@ -112,6 +119,36 @@ namespace myMarkletplace
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void ClearFields()
+        {
+            textBox1.Clear();
+            txtEmail.Clear();
+            txtPassword.Clear();
+            txtPhoneNumber.Clear();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DMUsers user = new DMUsers()
+                {
+                    user_name = textBox1.Text,
+                    user_phone = txtPhoneNumber.Text,
+                    user_email = txtEmail.Text,
+                    user_password = txtPassword.Text
+                };
+
+                _DAUsers.CreateUser(user);
+                ClearFields();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding user: " + ex.Message);
+            }
         }
     }
 }

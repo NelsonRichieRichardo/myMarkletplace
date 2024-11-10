@@ -48,7 +48,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.contact1 = new myMarkletplace.Contact();
-            this.sign_up1 = new myMarkletplace.Sign_up();
+            this.sign_up1 = new myMarkletplace.SignUp();
             this.about1 = new myMarkletplace.about();
             this.home1 = new myMarkletplace.home();
             this.panel1.SuspendLayout();
@@ -392,6 +392,6 @@
         private home home1;
         private about about1;
         private Contact contact1;
-        private Sign_up sign_up1;
+        private SignUp sign_up1;
     }
 }
