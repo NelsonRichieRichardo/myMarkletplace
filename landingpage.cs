@@ -46,7 +46,6 @@ namespace myMarkletplace
             sign_up1.Hide();
             profile1.Hide();
             payment1.Hide();
-            login1.Hide();
 
         }
 
@@ -163,7 +162,6 @@ namespace myMarkletplace
             about1.Hide();
             profile1.Hide();
             payment1.Hide();
-            login1.Hide();
             home1.Show();   
             home1.BringToFront();
         }
@@ -175,7 +173,6 @@ namespace myMarkletplace
             home1.Hide();
             profile1.Hide();
             payment1.Hide();
-            login1.Hide();
             contact1.Show();
             contact1.BringToFront();
         }
@@ -186,7 +183,6 @@ namespace myMarkletplace
             home1.Hide();
             contact1.Hide();
             profile1.Hide();
-            login1.Hide();
             payment1.Hide();
             about1.Show();
             about1.BringToFront();
@@ -199,7 +195,6 @@ namespace myMarkletplace
             about1.Hide();
             profile1.Hide();
             payment1.Hide();
-            login1.Hide();
             sign_up1.Show();
             sign_up1.BringToFront();
         }
@@ -215,7 +210,6 @@ namespace myMarkletplace
             contact1.Hide();
             about1.Hide();
             profile1.Hide();
-            login1.Hide();
             payment1.Hide();
             home1.Show();
             home1.BringToFront();
@@ -227,7 +221,6 @@ namespace myMarkletplace
             contact1.Hide();
             about1.Hide();
             profile1.Hide();
-            login1.Hide();
             home1.Hide();
             payment1.Show();
             payment1.BringToFront();
@@ -239,15 +232,11 @@ namespace myMarkletplace
             contact1.Hide();
             about1.Hide();
             home1.Hide();
-            login1.Hide();
             payment1.Hide();
             profile1.Show();
             profile1.BringToFront();
         }
 
-        private void login1_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

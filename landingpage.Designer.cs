@@ -51,7 +51,6 @@
             this.profile1 = new myMarkletplace.profile();
             this.sign_up1 = new myMarkletplace.SignUp();
             this.home1 = new myMarkletplace.home();
-            this.login1 = new myMarkletplace.login();
             this.panel1.SuspendLayout();
             this.navtop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -77,7 +76,6 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.login1);
             this.panel1.Controls.Add(this.navtop);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.contact1);
@@ -348,14 +346,6 @@
             this.home1.TabIndex = 6;
             this.home1.Load += new System.EventHandler(this.home1_Load);
             // 
-            // login1
-            // 
-            this.login1.ForeColor = System.Drawing.Color.Black;
-            this.login1.Location = new System.Drawing.Point(0, 113);
-            this.login1.Name = "login1";
-            this.login1.Size = new System.Drawing.Size(1905, 1084);
-            this.login1.TabIndex = 12;
-            this.login1.Load += new System.EventHandler(this.login1_Load);
             // 
             // landingpage
             // 
@@ -406,6 +396,5 @@
         private SignUp sign_up1;
         private profile profile1;
         private payment payment1;
-        private login login1;
     }
 }

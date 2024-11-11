@@ -15,13 +15,10 @@ namespace myMarkletplace
         public login()
         {
             InitializeComponent();
-            signUp1.Hide();
         }
 
         private void label4_Click(object sender, EventArgs e)
         {
-            signUp1.Show();
-            signUp1.BringToFront();
 
         }
     }

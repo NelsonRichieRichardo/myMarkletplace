@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.signUp1 = new myMarkletplace.SignUp();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,15 +145,6 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // signUp1
-            // 
-            this.signUp1.AutoSize = true;
-            this.signUp1.Location = new System.Drawing.Point(0, -2);
-            this.signUp1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.signUp1.Name = "signUp1";
-            this.signUp1.Size = new System.Drawing.Size(1707, 896);
-            this.signUp1.TabIndex = 23;
-            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -169,7 +159,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.signUp1);
             this.Name = "login";
             this.Size = new System.Drawing.Size(1905, 1084);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -190,6 +179,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private SignUp signUp1;
     }
 }
