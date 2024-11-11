@@ -42,6 +42,8 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,8 +72,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.label1);
@@ -222,6 +221,22 @@
             this.panel2.Size = new System.Drawing.Size(619, 806);
             this.panel2.TabIndex = 3;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel5.Location = new System.Drawing.Point(6, 380);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(606, 5);
+            this.panel5.TabIndex = 22;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel4.Location = new System.Drawing.Point(10, 559);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(606, 5);
+            this.panel4.TabIndex = 21;
             // 
             // button1
             // 
@@ -410,27 +425,11 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(252, 35);
+            this.label1.Location = new System.Drawing.Point(205, 53);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(357, 91);
             this.label1.TabIndex = 2;
             this.label1.Text = "Checkout";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel4.Location = new System.Drawing.Point(10, 559);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(606, 5);
-            this.panel4.TabIndex = 21;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel5.Location = new System.Drawing.Point(6, 380);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(606, 5);
-            this.panel5.TabIndex = 22;
             // 
             // payment
             // 
