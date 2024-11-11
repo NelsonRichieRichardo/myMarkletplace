@@ -26,6 +26,7 @@ namespace myMarkletplace
             SetPlaceholder2();
             SetPlaceholder3();
             SetPlaceholder4();
+            login1.Hide();
         }
         private void SetPlaceholder()
         {
@@ -203,6 +204,13 @@ namespace myMarkletplace
                 txtPassword.ForeColor = Color.Gray;
                 txtPassword.UseSystemPasswordChar = false;
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            login1.Show();
+            login1.BringToFront();
+
         }
     }
 }

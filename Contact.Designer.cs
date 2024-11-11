@@ -59,7 +59,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1152, 560);
+            this.pictureBox1.Location = new System.Drawing.Point(1088, 560);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(575, 461);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -70,7 +70,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1114, 240);
+            this.label2.Location = new System.Drawing.Point(1050, 240);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(686, 62);
             this.label2.TabIndex = 3;
@@ -80,7 +80,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(1114, 338);
+            this.label3.Location = new System.Drawing.Point(1050, 338);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(670, 62);
             this.label3.TabIndex = 4;
@@ -111,7 +111,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1114, 432);
+            this.label6.Location = new System.Drawing.Point(1050, 432);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(527, 62);
             this.label6.TabIndex = 7;
@@ -150,7 +150,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(1114, 128);
+            this.label9.Location = new System.Drawing.Point(1050, 128);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(527, 62);
             this.label9.TabIndex = 11;

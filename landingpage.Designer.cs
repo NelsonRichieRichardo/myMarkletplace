@@ -45,12 +45,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.about1 = new myMarkletplace.about();
+            this.contact1 = new myMarkletplace.Contact();
             this.payment1 = new myMarkletplace.payment();
+            this.about1 = new myMarkletplace.about();
             this.profile1 = new myMarkletplace.profile();
             this.sign_up1 = new myMarkletplace.SignUp();
             this.home1 = new myMarkletplace.home();
-            this.contact1 = new myMarkletplace.Contact();
+            this.login1 = new myMarkletplace.login();
             this.panel1.SuspendLayout();
             this.navtop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -76,14 +77,15 @@
             this.panel1.AutoScroll = true;
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.Controls.Add(this.payment1);
+            this.panel1.Controls.Add(this.login1);
             this.panel1.Controls.Add(this.navtop);
             this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.contact1);
+            this.panel1.Controls.Add(this.payment1);
             this.panel1.Controls.Add(this.about1);
             this.panel1.Controls.Add(this.profile1);
             this.panel1.Controls.Add(this.sign_up1);
             this.panel1.Controls.Add(this.home1);
-            this.panel1.Controls.Add(this.contact1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.ForeColor = System.Drawing.Color.Orange;
@@ -282,16 +284,17 @@
             this.label4.Text = "SHOP NOW";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // about1
+            // contact1
             // 
-            this.about1.AutoScroll = true;
-            this.about1.AutoSize = true;
-            this.about1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.about1.Location = new System.Drawing.Point(0, 113);
-            this.about1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.about1.Name = "about1";
-            this.about1.Size = new System.Drawing.Size(1911, 1057);
-            this.about1.TabIndex = 7;
+            this.contact1.AutoSize = true;
+            this.contact1.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
+            this.contact1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.contact1.Location = new System.Drawing.Point(66, 113);
+            this.contact1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.contact1.Name = "contact1";
+            this.contact1.Size = new System.Drawing.Size(1803, 1024);
+            this.contact1.TabIndex = 8;
+            this.contact1.Load += new System.EventHandler(this.contact1_Load);
             // 
             // payment1
             // 
@@ -302,6 +305,17 @@
             this.payment1.Name = "payment1";
             this.payment1.Size = new System.Drawing.Size(1817, 1024);
             this.payment1.TabIndex = 11;
+            // 
+            // about1
+            // 
+            this.about1.AutoScroll = true;
+            this.about1.AutoSize = true;
+            this.about1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.about1.Location = new System.Drawing.Point(0, 113);
+            this.about1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.about1.Name = "about1";
+            this.about1.Size = new System.Drawing.Size(1911, 1068);
+            this.about1.TabIndex = 7;
             // 
             // profile1
             // 
@@ -334,17 +348,14 @@
             this.home1.TabIndex = 6;
             this.home1.Load += new System.EventHandler(this.home1_Load);
             // 
-            // contact1
+            // login1
             // 
-            this.contact1.AutoSize = true;
-            this.contact1.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
-            this.contact1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.contact1.Location = new System.Drawing.Point(0, 113);
-            this.contact1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.contact1.Name = "contact1";
-            this.contact1.Size = new System.Drawing.Size(1803, 1024);
-            this.contact1.TabIndex = 8;
-            this.contact1.Load += new System.EventHandler(this.contact1_Load);
+            this.login1.ForeColor = System.Drawing.Color.Black;
+            this.login1.Location = new System.Drawing.Point(0, 113);
+            this.login1.Name = "login1";
+            this.login1.Size = new System.Drawing.Size(1905, 1084);
+            this.login1.TabIndex = 12;
+            this.login1.Load += new System.EventHandler(this.login1_Load);
             // 
             // landingpage
             // 
@@ -395,5 +406,6 @@
         private SignUp sign_up1;
         private profile profile1;
         private payment payment1;
+        private login login1;
     }
 }
