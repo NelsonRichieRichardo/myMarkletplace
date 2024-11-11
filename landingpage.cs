@@ -44,6 +44,8 @@ namespace myMarkletplace
             contact1.Hide();
             about1.Hide();
             sign_up1.Hide();
+            profile1.Hide();
+            payment1.Hide();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -157,6 +159,8 @@ namespace myMarkletplace
             sign_up1.Hide();
             contact1.Hide();
             about1.Hide();
+            profile1.Hide();
+            payment1.Hide();
             home1.Show();   
             home1.BringToFront();
         }
@@ -166,6 +170,8 @@ namespace myMarkletplace
             sign_up1.Hide();
             about1.Hide();
             home1.Hide();
+            profile1.Hide();
+            payment1.Hide();
             contact1.Show();
             contact1.BringToFront();
         }
@@ -175,6 +181,8 @@ namespace myMarkletplace
             sign_up1.Hide();
             home1.Hide();
             contact1.Hide();
+            profile1.Hide();
+            payment1.Hide();
             about1.Show();
             about1.BringToFront();
         }
@@ -184,6 +192,8 @@ namespace myMarkletplace
             home1.Hide();
             contact1.Hide();
             about1.Hide();
+            profile1.Hide();
+            payment1.Hide();
             sign_up1.Show();
             sign_up1.BringToFront();
         }
@@ -191,6 +201,39 @@ namespace myMarkletplace
         private void contact1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click_1(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            contact1.Hide();
+            about1.Hide();
+            profile1.Hide();
+            payment1.Hide();
+            home1.Show();
+            home1.BringToFront();
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            contact1.Hide();
+            about1.Hide();
+            profile1.Hide();
+            home1.Hide();
+            payment1.Show();
+            payment1.BringToFront();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            sign_up1.Hide();
+            contact1.Hide();
+            about1.Hide();
+            home1.Hide();
+            payment1.Hide();
+            profile1.Show();
+            profile1.BringToFront();
         }
     }
 }

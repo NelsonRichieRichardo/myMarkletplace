@@ -25,6 +25,7 @@ namespace myMarkletplace
             SetPlaceholder();
             SetPlaceholder2();
             SetPlaceholder3();
+            SetPlaceholder4();
         }
         private void SetPlaceholder()
         {
@@ -56,7 +57,7 @@ namespace myMarkletplace
 
         private void SetPlaceholder2()
         {
-            txtPassword.Text = "Email or Phone Number";
+            txtPassword.Text = "Password";
             txtPassword.ForeColor = Color.Gray;
 
             // Event handler untuk Enter dan Leave
@@ -75,16 +76,16 @@ namespace myMarkletplace
 
         private void SetPlaceholderIfEmpty2(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                txtPassword.Text = "Email or Phone Number";
+                txtPassword.Text = "Password";
                 txtPassword.ForeColor = Color.Gray;
             }
         }
 
         private void SetPlaceholder3()
         {
-            txtEmail.Text = "Password";
+            txtEmail.Text = "Email";
             txtEmail.ForeColor = Color.Gray;
 
             // Event handler untuk Enter dan Leave
@@ -103,13 +104,40 @@ namespace myMarkletplace
 
         private void SetPlaceholderIfEmpty3(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                txtEmail.Text = "Password";
+                txtEmail.Text = "Email";
                 txtEmail.ForeColor = Color.Gray;
             }
         }
 
+        private void SetPlaceholder4()
+        {
+            txtPhoneNumber.Text = "Phone Number";
+            txtPhoneNumber.ForeColor = Color.Gray;
+
+            // Event handler untuk Enter dan Leave
+            txtPhoneNumber.Enter += RemovePlaceholder4;
+            txtPhoneNumber.Leave += SetPlaceholderIfEmpty4;
+        }
+
+        private void RemovePlaceholder4(object sender, EventArgs e)
+        {
+            if (txtPhoneNumber.ForeColor == Color.Gray)
+            {
+                txtPhoneNumber.Text = "";
+                txtPhoneNumber.ForeColor = Color.Black;
+            }
+        }
+
+        private void SetPlaceholderIfEmpty4(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPhoneNumber.Text))
+            {
+                txtPhoneNumber.Text = "Phone Number";
+                txtPhoneNumber.ForeColor = Color.Gray;
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -148,6 +176,32 @@ namespace myMarkletplace
             catch (Exception ex)
             {
                 MessageBox.Show("Error adding user: " + ex.Message);
+            }
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtPassword.UseSystemPasswordChar = true;
+            
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                txtPassword.Text = "Password";
+                txtPassword.ForeColor = Color.Gray;
+                txtPassword.UseSystemPasswordChar = false;
             }
         }
     }
