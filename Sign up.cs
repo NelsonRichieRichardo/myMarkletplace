@@ -26,7 +26,6 @@ namespace myMarkletplace
             SetPlaceholder2();
             SetPlaceholder3();
             SetPlaceholder4();
-            login1.Hide();
         }
         private void SetPlaceholder()
         {
@@ -208,8 +207,11 @@ namespace myMarkletplace
 
         private void label4_Click(object sender, EventArgs e)
         {
-            login1.Show();
-            login1.BringToFront();
+
+        }
+
+        private void SignUp_Load(object sender, EventArgs e)
+        {
 
         }
     }
