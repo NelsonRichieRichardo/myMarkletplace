@@ -80,12 +80,6 @@
     <Compile Include="landingpage.Designer.cs">
       <DependentUpon>landingpage.cs</DependentUpon>
     </Compile>
-    <Compile Include="login.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
-    </Compile>
     <Compile Include="payment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,9 +120,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="landingpage.resx">
       <DependentUpon>landingpage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="login.resx">
-      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
