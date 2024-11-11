@@ -35,6 +35,7 @@ namespace myMarkletplace.Data_Accesses
                     }
                 }
             }
+
             catch (Exception ex)
             {
                 Console.WriteLine("Exception: " + ex.ToString());
