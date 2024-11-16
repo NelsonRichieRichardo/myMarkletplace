@@ -64,6 +64,7 @@
     <Compile Include="Contact.Designer.cs">
       <DependentUpon>Contact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business Logic\BLProducts.cs" />
     <Compile Include="Data Accesses\DAProducts.cs" />
     <Compile Include="Data Accesses\DAUsers.cs" />
     <Compile Include="Data Models\DMProducts.cs" />
@@ -156,9 +157,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business Logic\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\images %283%29.jpg" />
   </ItemGroup>

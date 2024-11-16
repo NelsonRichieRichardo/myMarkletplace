@@ -1,32 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using myMarkletplace.Data_Accesses;
-using myMarkletplace.Data_Models;
+using myMarkletplace.Business_Logic;
 
 namespace myMarkletplace
 {
     public partial class Form1 : Form
     {
-        private readonly DAProducts _DAProducts;
+        private readonly BLProducts _blProducts;
+
         public Form1()
         {
             InitializeComponent();
-            _DAProducts = new DAProducts();
+            _blProducts = new BLProducts();
             LoadProducts();
+            UpdateTotalValueLabel();
         }
 
+        private void UpdateTotalValueLabel()
+        {
+            decimal totalValue = _blProducts.GetTotalInventoryValue();
+            lblnilaibrg.Text = $"Total Nilai Barang: Rp {totalValue:N2}";
+        }
         private void LoadProducts()
         {
-            dgvProducts.DataSource = null; // Clear existing data source
-            dgvProducts.DataSource = _DAProducts.GetProducts();
+            dgvProducts.DataSource = null;
+            dgvProducts.DataSource = _blProducts.GetAllProducts();
+            UpdateTotalValueLabel();
         }
 
         private void ClearFields()
@@ -35,24 +36,25 @@ namespace myMarkletplace
             txtProductPrice.Clear();
             txtProductStock.Clear();
             txtProductDescription.Clear();
+            pictureBox1.Image = null;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
             {
-                DMProducts product = new DMProducts()
-                {
-                    product_name = txtProductName.Text,
-                    product_price = int.Parse(txtProductPrice.Text),
-                    product_stock = int.Parse(txtProductStock.Text),
-                    product_description = txtProductDescription.Text,
-                    product_image = getPhoto()
-                };
+                _blProducts.CreateProduct(
+                    txtProductName.Text,
+                    txtProductPrice.Text,
+                    txtProductStock.Text,
+                    txtProductDescription.Text,
+                    pictureBox1.Image
+                );
 
-                _DAProducts.CreateProduct(product);
+                MessageBox.Show("Product added successfully!");
                 LoadProducts();
                 ClearFields();
+                UpdateTotalValueLabel();
             }
             catch (Exception ex)
             {
@@ -66,21 +68,18 @@ namespace myMarkletplace
             {
                 try
                 {
-                    // Get the selected product's ID
                     int selectedProductId = (int)dgvProducts.SelectedRows[0].Cells["product_id"].Value;
-                    MessageBox.Show("Product updated succesfully!");
 
-                    DMProducts product = new DMProducts()
-                    {
-                        product_id = selectedProductId,
-                        product_name = this.txtProductName.Text,
-                        product_price = int.Parse(this.txtProductPrice.Text),
-                        product_stock = int.Parse(this.txtProductStock.Text),
-                        product_description = this.txtProductDescription.Text,
-                        product_image = getPhoto()
-                    };
+                    _blProducts.UpdateProduct(
+                        selectedProductId,
+                        txtProductName.Text,
+                        txtProductPrice.Text,
+                        txtProductStock.Text,
+                        txtProductDescription.Text,
+                        pictureBox1.Image
+                    );
 
-                    _DAProducts.UpdateProduct(product);
+                    MessageBox.Show("Product updated successfully!");
                     LoadProducts();
                     ClearFields();
                 }
@@ -102,33 +101,50 @@ namespace myMarkletplace
                 try
                 {
                     int selectedProductId = (int)dgvProducts.SelectedRows[0].Cells["product_id"].Value;
-                    DialogResult result =
-                        MessageBox.Show("Are you sure you want to delete this Product?",
-                        "Delete Product", MessageBoxButtons.YesNo);
 
-                    if (result == DialogResult.No)
+                    DialogResult result = MessageBox.Show(
+                        "Are you sure you want to delete this Product?",
+                        "Delete Product",
+                        MessageBoxButtons.YesNo
+                    );
+
+                    if (result == DialogResult.Yes)
                     {
-                        return;
+                        _blProducts.DeleteProduct(selectedProductId);
+                        LoadProducts();
                     }
-
-                    _DAProducts.DeleteProduct(selectedProductId);
-                    LoadProducts();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error updating product: " + ex.Message);
+                    MessageBox.Show("Error deleting product: " + ex.Message);
                 }
             }
             else
             {
                 MessageBox.Show("Please select a product to delete.");
             }
-
         }
 
         private void dgvProducts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Jika Anda ingin menampilkan data produk yang dipilih di form
+            if (e.RowIndex >= 0)
+            {
+                var row = dgvProducts.Rows[e.RowIndex];
+                txtProductName.Text = row.Cells["product_name"].Value.ToString();
+                txtProductPrice.Text = row.Cells["product_price"].Value.ToString();
+                txtProductStock.Text = row.Cells["product_stock"].Value.ToString();
+                txtProductDescription.Text = row.Cells["product_description"].Value.ToString();
 
+                if (row.Cells["product_image"].Value != null)
+                {
+                    byte[] imageBytes = (byte[])row.Cells["product_image"].Value;
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        pictureBox1.Image = Image.FromStream(ms);
+                    }
+                }
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -150,14 +166,60 @@ namespace myMarkletplace
             }
         }
 
-        private byte[] getPhoto()
+        // Jika Anda ingin menampilkan timestamp
+        private void DisplayTimestamps(DateTime createdAt, DateTime updatedAt)
         {
-            MemoryStream stream = new MemoryStream();
+            string utcCreatedAt = _blProducts.FormatUtcTimestamp(createdAt);
+            string utcUpdatedAt = _blProducts.FormatUtcTimestamp(updatedAt);
 
-            pictureBox1.Image.Save(stream, pictureBox1.Image.RawFormat);
+            // Asumsikan Anda memiliki label untuk menampilkan timestamp
+            lblCreatedAt.Text = $"Created: {utcCreatedAt}";
+            lblUpdatedAt.Text = $"Updated: {utcUpdatedAt}";
+        }
 
-            return stream.GetBuffer();
+        // Jika Anda ingin menampilkan timestamp dalam waktu lokal
+        private void DisplayLocalTimestamps(DateTime createdAt, DateTime updatedAt)
+        {
+            string localCreatedAt = _blProducts.ConvertUtcToLocal(createdAt);
+            string localUpdatedAt = _blProducts.ConvertUtcToLocal(updatedAt);
+
+            lblCreatedAt.Text = $"Created: {localCreatedAt}";
+            lblUpdatedAt.Text = $"Updated: {localUpdatedAt}";
+        }
+
+        // Optional: Handler untuk row selection di DataGridView
+        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvProducts.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvProducts.SelectedRows[0];
+
+                // Mengisi form fields
+                txtProductName.Text = selectedRow.Cells["product_name"].Value.ToString();
+                txtProductPrice.Text = selectedRow.Cells["product_price"].Value.ToString();
+                txtProductStock.Text = selectedRow.Cells["product_stock"].Value.ToString();
+                txtProductDescription.Text = selectedRow.Cells["product_description"].Value.ToString();
+
+                // Menampilkan gambar
+                if (selectedRow.Cells["product_image"].Value != null)
+                {
+                    byte[] imageBytes = (byte[])selectedRow.Cells["product_image"].Value;
+                    using (MemoryStream ms = new MemoryStream(imageBytes))
+                    {
+                        pictureBox1.Image = Image.FromStream(ms);
+                    }
+                }
+
+                // Menampilkan timestamp jika ada
+                if (selectedRow.Cells["created_at"].Value != null &&
+                    selectedRow.Cells["updated_at"].Value != null)
+                {
+                    DateTime createdAt = (DateTime)selectedRow.Cells["created_at"].Value;
+                    DateTime updatedAt = (DateTime)selectedRow.Cells["updated_at"].Value;
+                    DisplayTimestamps(createdAt, updatedAt);
+                    // Atau gunakan DisplayLocalTimestamps(createdAt, updatedAt); untuk waktu lokal
+                }
+            }
         }
     }
 }
-

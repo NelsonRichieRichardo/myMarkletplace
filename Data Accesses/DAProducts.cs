@@ -42,7 +42,9 @@ namespace myMarkletplace.Data_Accesses
                                     product_price = reader.GetInt32(2),
                                     product_stock = reader.GetInt32(3),
                                     product_description = reader.GetString(4),
-                                    product_image = reader["product_image"] as byte[]
+                                    product_image = reader["product_image"] as byte[],
+                                    created_at = reader.GetDateTime(reader.GetOrdinal("created_at")),
+                                    updated_at = reader.GetDateTime(reader.GetOrdinal("updated_at"))
                                 };
 
                                 products.Add(DMProducts);
@@ -89,7 +91,9 @@ namespace myMarkletplace.Data_Accesses
                                     product_price = reader.GetInt32(2),
                                     product_stock = reader.GetInt32(3),
                                     product_description = reader.GetString(4),
-                                    product_image = reader["product_image"] as byte[]
+                                    product_image = reader["product_image"] as byte[],
+                                    created_at = reader.GetDateTime(reader.GetOrdinal("created_at")),
+                                    updated_at = reader.GetDateTime(reader.GetOrdinal("updated_at"))
                                 };
 
                                 return DMProducts;
@@ -197,6 +201,34 @@ namespace myMarkletplace.Data_Accesses
             {
                 Console.WriteLine("Exception: " + ex.ToString());
             }
+        }
+
+        public decimal GetTotalInventoryValue()
+        {
+            decimal totalValue = 0;
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connstring))
+                {
+                    conn.Open();
+
+                    using (SqlCommand cmd = new SqlCommand("SELECT dbo.CalculateTotalInventoryValue()", conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            totalValue = Convert.ToDecimal(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: " + ex.ToString());
+            }
+
+            return totalValue;
         }
     }
 }
