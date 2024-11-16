@@ -157,7 +157,7 @@
             // dgvProducts
             // 
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Cursor = System.Windows.Forms.Cursors.No;
+            this.dgvProducts.Cursor = System.Windows.Forms.Cursors.Arrow;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -230,9 +230,9 @@
             this.lblnilaibrg.AutoSize = true;
             this.lblnilaibrg.Location = new System.Drawing.Point(53, 686);
             this.lblnilaibrg.Name = "lblnilaibrg";
-            this.lblnilaibrg.Size = new System.Drawing.Size(51, 20);
+            this.lblnilaibrg.Size = new System.Drawing.Size(77, 20);
             this.lblnilaibrg.TabIndex = 16;
-            this.lblnilaibrg.Text = "label5";
+            this.lblnilaibrg.Text = "Nilai Total";
             // 
             // Form1
             // 

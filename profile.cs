@@ -81,5 +81,11 @@ namespace myMarkletplace
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form1 formbaru = new Form1();
+            formbaru.ShowDialog();
+        }
     }
 }
