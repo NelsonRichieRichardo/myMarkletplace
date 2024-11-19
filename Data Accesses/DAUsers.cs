@@ -29,7 +29,7 @@ namespace myMarkletplace.Data_Accesses
                         cmd.Parameters.AddWithValue("@user_phone", user.user_phone);
                         cmd.Parameters.AddWithValue("@user_email", user.user_email);
                         cmd.Parameters.AddWithValue("@user_password", user.user_password);
-
+                        
                         // Execute the stored procedure
                         cmd.ExecuteNonQuery();
                     }
